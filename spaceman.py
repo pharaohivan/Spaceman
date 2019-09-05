@@ -13,7 +13,10 @@ def load_word(): #function to load word
 
     words_list = words_list[0].split(' ') # split words in word file by characters
     secret_word = random.choice(words_list) # selecting split from word list
-    return secret_word #
+    return(secret_word)
+
+
+
 
 def is_word_guessed(secret_word, letters_guessed):
     '''
@@ -37,9 +40,18 @@ def get_guessed_word(secret_word, letters_guessed):
         string: letters and underscores.  For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position.  For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.
     '''
 
-    #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
+        wordsstring = ""
+    #TODO: Loop through the letters in secret word and build a string that shows
+    #the letters that have been guessed correctly so far that are saved in letters_guessed and underscores
+    #for the letters that have not been guessed yet
 
-    pass
+        for words in secret_word: #creating words variable and putting secret_word in it
+            if words in letters_guessed: #if any letters are in that word
+                wordsstring = words + "" #assigning word character to word string variable
+            else:
+                wordsstring = "_"
+            return worddstring
+
 
 
 def is_guess_in_word(guess, secret_word):
