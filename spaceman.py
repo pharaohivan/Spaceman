@@ -28,7 +28,20 @@ def is_word_guessed(secret_word, letters_guessed):
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-    pass
+
+    lengthofsecretword = len(secret_word)
+    i = 0
+
+    for letter in letters_guessed:
+        number_of_letters = secret_word.count(letter)
+        if (number_of_letters > 0):
+            i += number_of_letters
+
+    if lengthofsecretword == i:
+        return True
+    else: False
+
+        #pass
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
@@ -45,9 +58,9 @@ def get_guessed_word(secret_word, letters_guessed):
     #the letters that have been guessed correctly so far that are saved in letters_guessed and underscores
     #for the letters that have not been guessed yet
 
-        for words in secret_word: #creating words variable and putting secret_word in it
-            if words in letters_guessed: #if any letters are in that word
-            wordsstring = words + "" #assigning word character to word string variable
+        for letters in secret_word: #creating letter variables and putting secret_word in it
+            if letters in letters_guessed: #if any letters are in that word
+            wordsstring = letters + "" #assigning word character to word string variable
             else:
                 wordsstring = "_"
         return worddstring
@@ -70,7 +83,7 @@ def is_guess_in_word(guess, secret_word):
     return False
     #TODO: check if the letter guess is in the secret word
 
-    pass
+    #pass
 
 
 
