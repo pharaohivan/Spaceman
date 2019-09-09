@@ -87,7 +87,9 @@ def is_guess_in_word(guess, secret_word):
     #pass
 
 
-
+def user_input(question):
+    userinput = input(question)
+    return userinput
 
 def spaceman(secret_word):
     '''
@@ -97,8 +99,17 @@ def spaceman(secret_word):
     '''
 
 
+
     #TODO: show the player information about the game according to the project spec
 
+    print('\n\nWelcome To Spaceman')
+    print(secret_word)
+
+    guess = user_input("Guess the character ")
+
+
+    index = secret_word.find(guess) #  finds index of guess in secret word
+    print(index)
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
@@ -114,4 +125,4 @@ def spaceman(secret_word):
 
 #These function calls that will start the game
 secret_word = load_word()
-spaceman(load_word())
+spaceman(secret_word)
