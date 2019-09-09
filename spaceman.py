@@ -58,12 +58,12 @@ def get_guessed_word(secret_word, letters_guessed):
     #the letters that have been guessed correctly so far that are saved in letters_guessed and underscores
     #for the letters that have not been guessed yet
 
-        for letters in secret_word: #creating letter variables and putting secret_word in it
-            if letters in letters_guessed: #if any letters are in that word
+    for letters in secret_word: #creating letter variables and putting secret_word in it
+        if letters in letters_guessed: #if any letters are in that word
             wordsstring = letters + "" #assigning word character to word string variable
-            else:
+        else:
                 wordsstring = "_"
-        return worddstring
+                return worddstring
 
 
 
@@ -77,10 +77,11 @@ def is_guess_in_word(guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
     '''
 
-    for (letter in secret_word)
-        if guess == letter
-        return True
-    return False
+    for letter in secret_word:
+        if guess == letter:
+            return True
+        else:
+            return False
     #TODO: check if the letter guess is in the secret word
 
     #pass
