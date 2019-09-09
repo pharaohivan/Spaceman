@@ -1,5 +1,6 @@
 import random #library that has shuffle, random, choice, etc.
 
+letters_guessed = []
 def load_word(): #function to load word
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -106,11 +107,19 @@ def spaceman(secret_word):
     print(secret_word)
 
     guess = user_input("Guess the character ")
-
-
+    if guess.isalpha() == True and len(guess) <= 1:
+        letters_guessed.append(guess)
+    else:
+        print('Try again. Input one letter only.')
     index = secret_word.find(guess) #  finds index of guess in secret word
-    print(index)
+    #print(index)
+    print(letters_guessed)
+
+
+
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
+
+
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
