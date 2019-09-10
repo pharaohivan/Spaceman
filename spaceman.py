@@ -1,6 +1,5 @@
 import random #library that has shuffle, random, choice, etc.
 
-letters_guessed = []
 def load_word(): #function to load word
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -61,10 +60,10 @@ def get_guessed_word(secret_word, letters_guessed):
 
     for letters in secret_word: #creating letter variables and putting secret_word in it
         if letters in letters_guessed: #if any letters are in that word
-            wordsstring = letters + "" #assigning word character to word string variable
+            wordsstring += letters #assigning word character to word string variable
         else:
-                wordsstring = "_"
-                return worddstring
+            wordsstring += "_"
+            return print(wordsstring)
 
 
 
@@ -99,6 +98,7 @@ def spaceman(secret_word):
       secret_word (string): the secret word to guess.
     '''
 
+    letters_guessed = []
 
 
     #TODO: show the player information about the game according to the project spec
@@ -106,14 +106,39 @@ def spaceman(secret_word):
     print('\n\nWelcome To Spaceman')
     print(secret_word)
 
-    guess = user_input("Guess the character ")
-    if guess.isalpha() == True and len(guess) <= 1:
-        letters_guessed.append(guess)
+
+    rungame = True
+    attempts = 0
+
+    while rungame:
+
+        guess = user_input("Guess the character ")
+        if attempts > 6:
+            print('You have reached your maximum number of attempts. Game Over.')
+            return rungame = False
+        else:
+            attemptsleft = 7 - attempts
+            print('You have ' + str(attemptsleft) + ' attempts remaining')
+            if guess.isalpha() == True and len(guess) == 1:
+                letters_guessed.append(guess)
+                if is_guess_in_word(guess, secret_word) == True:
+                    print(get_guessed_word(secret_word, letters_guessed))
+                else:
+                    attempts += 1
+                    print('The letter is not in the word')
+
+            else:
+                print('Try again. Input one letter only.')
+
+    if (is_word_guessed(secret_word, letters_guessed)):
+        print ('Hallelujah!')
     else:
-        print('Try again. Input one letter only.')
-    index = secret_word.find(guess) #  finds index of guess in secret word
-    #print(index)
-    print(letters_guessed)
+        print ('You lose. ')
+            #index = secret_word.find(guess) #  finds index of guess in secret word
+            #print(index)
+
+
+    #print(letters_guessed)
 
 
 
