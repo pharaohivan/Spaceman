@@ -34,6 +34,7 @@ def is_word_guessed(secret_word, letters_guessed):
 
     for letter in letters_guessed:
         number_of_letters = secret_word.count(letter)
+        print(number_of_letters)
         if (number_of_letters > 0):
             i += number_of_letters
 
@@ -64,7 +65,7 @@ def get_guessed_word(secret_word, letters_guessed):
             wordsstring += (letters + ' ') #assigning word character to word string variable
         else:
             wordsstring += "_ "
-    return print(wordsstring)
+    return wordsstring
 
 
 
@@ -164,7 +165,7 @@ def spaceman(secret_word):
 
 
 
-
-#These function calls that will start the game
-secret_word = load_word()
-spaceman(secret_word)
+if __name__ == '__main__':
+    #These function calls that will start the game
+    secret_word = load_word()
+    spaceman(secret_word)
